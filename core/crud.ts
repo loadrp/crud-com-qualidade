@@ -3,10 +3,10 @@ import {v4 as uuid} from "uuid";
 
 const dbFilePath = "./core/db"
 
-
+type UUID = string;
 
 interface Todo {
-  id: string;
+  id: UUID;
   date: string;
   content: string;
   done: boolean;
@@ -41,7 +41,7 @@ function read(): Array<Todo> {
   return db.todos;
 }
 
-function update(id:string, partialTodo: Partial<Todo>) : Todo{
+function update(id:UUID, partialTodo: Partial<Todo>) : Todo{
   let updatedTodo
   const todos = read();
   todos.forEach((currentTodo) => {
@@ -56,8 +56,17 @@ function update(id:string, partialTodo: Partial<Todo>) : Todo{
   }
   return updatedTodo;
 }
-function updateContentById(id: string, content:string): Todo {
+function updateContentById(id: UUID, content:string): Todo {
   return update(id, {content,})
+}
+
+function deleteById(id:UUID){
+  const todos = read();
+  const todosWithoutOneID = todos.filter(todos => {
+    return todos.id !== id
+  })
+  fs.writeFileSync(dbFilePath, JSON.stringify({todos: todosWithoutOneID},null,2))
+
 }
 
 
@@ -69,11 +78,13 @@ function clearDB() {
 //Simulação
 clearDB()
 create("PRIMEIRA TODO")
-create("Segunda TODO")
+const secondTodo = create("Segunda TODO")
 const terceiraTodo = create("terceira TODO")
 update(terceiraTodo.id, {
   content: "Segunda todo com novo content",
 })
 updateContentById(terceiraTodo.id, "Atualizada")
+deleteById(secondTodo.id)
+deleteById(terceiraTodo.id)
 console.log(read())
 
