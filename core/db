@@ -1,1 +1,15 @@
-testando a mensagem inicial
+{
+  "todos": [
+    {
+      "date": "2024-10-06T11:33:07.072Z",
+      "content": "PRIMEIRA TODO",
+      "done": false
+    },
+    {
+      "date": "2024-10-06T11:33:07.072Z",
+      "content": "SEGUNDA TODO",
+      "done": false
+    }
+  ],
+  "dogs": []
+}
