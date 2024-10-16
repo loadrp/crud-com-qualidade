@@ -85,6 +85,5 @@ update(terceiraTodo.id, {
 })
 updateContentById(terceiraTodo.id, "Atualizada")
 deleteById(secondTodo.id)
-deleteById(terceiraTodo.id)
 console.log(read())
 

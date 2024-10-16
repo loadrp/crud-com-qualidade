@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "dev": "next dev",
+    "lint": "eslint '../**/*.{ts,tsx,js,jsx}'",
     "start:crud": "npx ts-node ./core/crud.ts",
     "dev:crud": "nodemon --ext ts,tsx --exec 'npm run start:crud'",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,12 +14,16 @@
   "license": "ISC",
   "description": "Projeto CRUD com qualidade - Curso Mario Souto",
   "dependencies": {
+    "next": "^14.2.15",
     "nodemon": "^3.1.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "typescript": "^5.6.2",
     "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.7.4",
+    "@types/react": "18.3.11",
     "@types/uuid": "^10.0.0"
   }
 }
