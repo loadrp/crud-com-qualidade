@@ -105,6 +105,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@server/*": ["src/server/*"],
+      "@db-crud-todo":["core/crud.ts"]
+    },
     "plugins": [
       {
         "name": "next"

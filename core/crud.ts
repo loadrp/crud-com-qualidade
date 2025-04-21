@@ -12,7 +12,7 @@ interface Todo {
   done: boolean;
 }
 
-function create(content: string): Todo {
+export function create(content: string): Todo {
   const todo: Todo = {
     id: uuid(),
     date: new Date().toISOString(),
@@ -35,7 +35,7 @@ function create(content: string): Todo {
   return todo;
 }
 
-function read(): Array<Todo> {
+export function read(): Array<Todo> {
   const dbString = fs.readFileSync(dbFilePath, "utf-8");
   const db = JSON.parse(dbString || "{}");
   if (!db.todos) {
