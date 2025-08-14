@@ -12,9 +12,12 @@ function get(request: NextRequest, response: NextResponse) {
 });
 }
 
-function update() {}
+function create(request: NextRequest , response: NextResponse) {
+  const content = request.body;
+  console.log(content);
+}
 
 export const todoController = {
   get,
-  update,
+  create
 };
