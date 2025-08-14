@@ -7,8 +7,8 @@ export async function GET(_request: NextRequest, response: NextResponse) {
   return answer;
 }
 
-export async function POST(_request: Request) {
-  const todos = await create();
-  return NextResponse.json({ todos });
-  // ou assim return new Response(JSON.stringify({ todos }));
-}
+// export async function POST(_request: Request) {
+//   const response = await create();
+//   return response;
+//   // ou assim return new Response(JSON.stringify({ todos }));
+// }

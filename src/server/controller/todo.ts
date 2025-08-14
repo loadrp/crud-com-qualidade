@@ -1,18 +1,20 @@
 import { read, create } from "@db-crud-todo";
 import { NextRequest, NextResponse } from "next/server";
 
-function get(_request: NextRequest, res: NextResponse) {
-  const todos = read();
-  console.log(todos);
-  return NextResponse.json(todos);
+function get(request: NextRequest, response: NextResponse) {
+  if (request.method === "GET") {
+    const ALL_TODOS = read();
+    return NextResponse.json({ status: 200, todos: ALL_TODOS });
+  }
+  return NextResponse.json({
+    message: "Method not allowed",
+    status: 405,
+});
 }
-
-function post() {}
 
 function update() {}
 
 export const todoController = {
   get,
-  post,
   update,
 };
